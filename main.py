@@ -38,7 +38,7 @@ def ts2date(timestamp):
 
 p1 = convert_to_unix_timestamp("1/1/2011") + 86400
 p2 = convert_to_unix_timestamp("31/12/2025")
-resp = rq.get(f"PASTE YAHOO FINANCE API (V8) HERE", headers=header)
+resp = rq.get(f"PASTE YAHOO FINANCE API (V8) ENDPOINT HERE, param: {stock code}?period1={p1}&period2={p2}&interval=1mo&indicators=quote&includeTimestamps=true", headers=header)
 dat = loads(resp.text)
 txn = dat['chart']['result'][0]['indicators']['quote'][0]
 opens = list(txn['open']) #open prices of i-th day
